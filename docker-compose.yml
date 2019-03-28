@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  registry:
+    image: 192.87.106.18:56001/haproxy:0.1
+    # image: haproxy:0.1
+    labels: 
+      MY_DLO_ENVIRONMENT: platform
+      MY_DLO_PURPOSE: proxy voor all platform applicaties
+    ports:
+      # platform:56000+, dev:57000+, demo:58000+, pilot:59000+
+      - 80:80
+      - 443:443
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - platform-net
+    volumes:
+      - /mnt/nfs/nfsdlo/platform-net/haproxy-0.1/:/usr/local/etc/haproxy/
+
+
+networks:
+  platform-net:
+    external: true
