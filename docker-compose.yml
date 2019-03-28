@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  registry:
+  haproxy:
     image: 192.87.106.18:56001/haproxy:0.1
     # image: haproxy:0.1
     labels: 
