@@ -17,7 +17,7 @@ services:
     networks:
       - platform-net
     volumes:
-      - /mnt/nfs/nfsdlo/platform-net/haproxy-0.1/:/usr/local/etc/haproxy/
+      - /mnt/nfs/nfsdlo/$STACK_NETWORK/$STACK_SERVICE/$STACK_VERSION/conf:/usr/local/etc/haproxy
 
 
 networks:
